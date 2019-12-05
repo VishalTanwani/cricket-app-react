@@ -1,0 +1,33 @@
+.App {
+  font-family: sans-serif;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.Card {
+  font-family: sans-serif;
+  margin-top: 5px;
+  border-radius: 10px;
+  background: white;
+  padding-bottom: 8px;
+}
+.SrsName {
+  padding: 15px;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, white, #d9dddc, #d9ddd9, white);
+}
+.Detail {
+  margin-left: 15px;
+}
+.Sts {
+  text-align: center;
+  padding: 8px;
+  width: 50%;
+  border-radius: 15px;
+  background: rgb(236, 236, 74);
+}
+body {
+  background: #d9dddc;
+}
+.map {
+  width: 300px;
+}
