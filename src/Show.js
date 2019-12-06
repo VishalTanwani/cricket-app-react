@@ -6,17 +6,7 @@ const Show = props => {
   var a1 = "",
     a2 = "";
   if (props.matchStatus === "upcoming") {
-    res = Math.floor(props.startDate / 6000000) + " minutes to toss";
-  } else if (props.matchStatus === "running") {
-    a1 =
-      props.matchScore[0].teamScore[0].runsScored +
-      " / " +
-      props.matchScore[0].teamScore[0].wickets;
-    a2 =
-      props.matchScore[1].teamScore[0].runsScored +
-      " / " +
-      props.matchScore[1].teamScore[0].wickets;
-    res = "match is running";
+    res = Math.floor(props.startDate / 6000000) + " minuts to toss";
   } else if (props.matchStatus === "completed") {
     a1 =
       props.matchScore[0].teamScore[0].runsScored +
@@ -27,6 +17,13 @@ const Show = props => {
       " / " +
       props.matchScore[1].teamScore[0].wickets;
     res = props.matchResult;
+  } else {
+    a1 =
+      props.matchScore[0].teamScore[0].runsScored +
+      " / " +
+      props.matchScore[0].teamScore[0].wickets;
+    a2 = " 0/0 ";
+    res = "match is running";
   }
   return (
     <div className="Card">
