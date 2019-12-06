@@ -2,22 +2,32 @@ import React from "react";
 import "./styles.css";
 
 const Show = props => {
-  const res =
-    props.matchStatus === "completed"
-      ? props.matchResult
-      : Math.floor(props.startDate / 6000000) + " minuts to toss";
-  const a1 =
-    props.matchStatus !== "upcoming"
-      ? props.matchScore[0].teamScore[0].runsScored +
-        " / " +
-        props.matchScore[0].teamScore[0].wickets
-      : "0/0";
-  const a2 =
-    props.matchStatus !== "upcoming"
-      ? props.matchScore[1].teamScore[0].runsScored +
-        " / " +
-        props.matchScore[1].teamScore[0].wickets
-      : "0/0";
+  var res = "";
+  var a1 = "",
+    a2 = "";
+  if (props.matchStatus === "upcoming") {
+    res = Math.floor(props.startDate / 6000000) + " minutes to toss";
+  } else if (props.matchStatus === "running") {
+    a1 =
+      props.matchScore[0].teamScore[0].runsScored +
+      " / " +
+      props.matchScore[0].teamScore[0].wickets;
+    a2 =
+      props.matchScore[1].teamScore[0].runsScored +
+      " / " +
+      props.matchScore[1].teamScore[0].wickets;
+    res = "match is running";
+  } else if (props.matchStatus === "completed") {
+    a1 =
+      props.matchScore[0].teamScore[0].runsScored +
+      " / " +
+      props.matchScore[0].teamScore[0].wickets;
+    a2 =
+      props.matchScore[1].teamScore[0].runsScored +
+      " / " +
+      props.matchScore[1].teamScore[0].wickets;
+    res = props.matchResult;
+  }
   return (
     <div className="Card">
       <h4 className="SrsName">{props.seriesName}</h4>

@@ -50,7 +50,7 @@ class App extends Component {
         });
         break;
       case 2:
-        this.setState({ type2: "demestic" }, () => {
+        this.setState({ type2: "domestic" }, () => {
           console.log(this.state.type2);
           this.apiChange();
         });
@@ -110,7 +110,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Schedule</h1>
-        <AppBar position="static" color="while">
+        <AppBar position="static" color="white">
           <Tabs
             value={this.state.value1}
             onChange={this.handleChange1}
@@ -134,7 +134,7 @@ class App extends Component {
             <Tab label="Domestic" />
           </Tabs>
         </AppBar>
-        {this.state.data.map(item => (
+        {(this.state.data || []).map(item => (
           <Show key={item.matchID} {...item} />
         ))}
       </div>
